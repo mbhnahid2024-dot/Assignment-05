@@ -27,7 +27,7 @@ const groups = [
 ];
 
 const socials = [
-  { label: "GitHub", href: "https://github.com" },
+  { label: "GitHub", href: "https://github.com/mbhnahid2024-dot/Assignment-05" },
   { label: "Twitter", href: "https://twitter.com" },
   { label: "LinkedIn", href: "https://linkedin.com" },
 ];

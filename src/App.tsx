@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import type { Technology } from "./types/technology";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -15,10 +16,12 @@ export default function App() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const res = await fetch("/technologies.json");
+        const res = await fetch(`${import.meta.env.BASE_URL}technologies.json`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data: Technology[] = await res.json();
         setTechnologies(data);
-      } catch {
+      } catch (err) {
+        console.error("Failed to load technologies:", err);
         toast.error("Failed to load technologies");
       } finally {
         setLoading(false);
